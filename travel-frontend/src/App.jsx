@@ -1,11 +1,25 @@
+import react from "react"
+import {createBrowserRouter, RouterProvider} from "react-router-dom"
+import Layout from "../layout"
+import { HomePage } from "./components/homepage"
 
-function App() {
 
-  return (
-    <>
-        <div className="bg-primary-green  text-7xl"> frontend</div>
-    </>
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element : <Layout/>,
+    children: [
+      {
+        path: "/",
+        element: <HomePage/>
+      }
+    ]
+  }
+])
+
+
+export const App = ()=>{
+  return(
+    <RouterProvider router={router}/>
   )
 }
-
-export default App
